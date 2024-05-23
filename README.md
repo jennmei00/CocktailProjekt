@@ -9,5 +9,5 @@ The connection is established using OleDbConnection.
 Create your own cocktail recipe by adding some alcohol, juice or even decoration, enter a name of your choice and mix it all up.
 You can view all your summarized recipes in one simple table.
 
-### Infos:
+## Infos:
 This project was developed within my school education as Software-Developer.
