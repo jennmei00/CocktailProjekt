@@ -1,0 +1,27 @@
+﻿<Window x:Class="View.SaftView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:View"
+        xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"
+        mc:Ignorable="d"
+        Title="Saftauswahl" Height="370.71" Width="525" FontFamily="Dubai" FontSize="14">
+    <Window.DataContext>
+        <vm:VMSaftView></vm:VMSaftView>
+    </Window.DataContext>
+    <Grid Margin="0,0,0,-2">
+        <ComboBox Name="ComboBoxSaft" ItemsSource="{Binding Path=Saftliste}" HorizontalAlignment="Left" Height="28" Margin="165,27,0,0" VerticalAlignment="Top" Width="254"/>
+        <Label Content="Auswahl:" HorizontalAlignment="Left" Height="33" Margin="68,22,0,0" VerticalAlignment="Top" Width="76" FontSize="18"/>
+        <Button Template="{DynamicResource ButtonTemplateSaft}" x:Name="ButtonHinzufuegen" Content="hinzufügen" HorizontalAlignment="Left" Height="26" Margin="165,82,0,0" VerticalAlignment="Top" Width="192" Command="{Binding ButtonHinzufuegen}" CommandParameter="{Binding ElementName=ComboBoxSaft, Path=SelectedItem}"/>
+        <Button Template="{DynamicResource ButtonTemplateSaft}" x:Name="ButtonEntfernen" Content="entfernen" HorizontalAlignment="Left" Height="26" Margin="305,123,0,0" VerticalAlignment="Top" Width="192" Command="{Binding ButtonEntfernen}" CommandParameter="{Binding ElementName=ListBoxSaftliste, Path=SelectedItem}"/>
+        <ListBox x:Name="ListBoxSaftliste" HorizontalAlignment="Left" Height="125" Margin="202,165,0,0" VerticalAlignment="Top" Width="295" ItemsSource="{Binding Path=AuswahlSaft}"/>
+        <Image HorizontalAlignment="Left" Height="106" Margin="27,136,0,0" VerticalAlignment="Top" Width="154" RenderTransformOrigin="0.494,0.712">
+            <Image.Source>
+                <BitmapImage UriSource="\Images\Säfte.jpg"/>
+            </Image.Source>
+        </Image>
+        <Button Template="{DynamicResource ButtonTemplateSaft}" x:Name="ButtonUebernehmen" Content="übernehmen" HorizontalAlignment="Left" Height="26" Margin="43,264,0,0" VerticalAlignment="Top" Width="130" Command="{Binding ButtonUebernehmen}" CommandParameter="{Binding ElementName=ListBoxSaftliste, Path=ItemsSource}" Click="ButtonUebernehmen_Click"/>
+
+    </Grid>
+</Window>
